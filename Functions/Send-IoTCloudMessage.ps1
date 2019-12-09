@@ -14,5 +14,5 @@ function Send-IoTCloudMessage {
     $cloudClient
   )
   $messagetosend = [Microsoft.Azure.Devices.Message]([Text.Encoding]::ASCII.GetBytes($messageString))
-  $cloudClient.SendAsync($deviceId, $messagetosend)
+  $cloudClient.SendAsync($deviceId, $messagetosend).Wait()
 }
